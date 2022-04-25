@@ -13,6 +13,8 @@ func (k msgServer) CreateComment(goCtx context.Context, msg *types.MsgCreateComm
 
 	post := k.GetPost(ctx, msg.PostID)
 	postId := post.Id
+	
+	_=postId
 
 	// Check if the Post Exists for which a comment is being created
 	if msg.PostID == 0 {
