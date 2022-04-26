@@ -9,8 +9,10 @@ import (
 	"github.com/username/loan/x/loan/keeper"
 	"github.com/username/loan/x/loan/types"
 )
-
+//
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {
 	k, ctx := keepertest.LoanKeeper(t)
 	return keeper.NewMsgServerImpl(*k), sdk.WrapSDKContext(ctx)
 }
+
+var _ = setupMsgServer //just for stopping error 
