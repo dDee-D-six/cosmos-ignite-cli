@@ -2,14 +2,14 @@ package keeper
 
 import (
 	"context"
-
-	sdk "github.com/cosmos/cosmos-sdk/types"
+  
 	"github.com/username/scavenge/x/scavenge/types"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/tendermint/tendermint/crypto"
-)
+  )
 
-func (k msgServer) SubmitScavenge(goCtx context.Context, msg *types.MsgSubmitScavenge) (*types.MsgSubmitScavengeResponse, error) {
+  func (k msgServer) SubmitScavenge(goCtx context.Context, msg *types.MsgSubmitScavenge) (*types.MsgSubmitScavengeResponse, error) {
 	// get context that contains information about the environment, such as block height
 	  ctx := sdk.UnwrapSDKContext(goCtx)
 	// create a new scavenge from the data in the MsgSubmitScavenge message
