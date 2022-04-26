@@ -48502,6 +48502,12 @@ definitions:
     title: >-
       SignatureCounts contains information about signature reporting for a
       number of blocks
+  username.scavenge.scavenge.MsgCommitSolutionResponse:
+    type: object
+  username.scavenge.scavenge.MsgRevealSolutionResponse:
+    type: object
+  username.scavenge.scavenge.MsgSubmitScavengeResponse:
+    type: object
   username.scavenge.scavenge.Params:
     type: object
     description: Params defines the parameters for the module.
