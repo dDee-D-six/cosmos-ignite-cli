@@ -4,9 +4,9 @@ import (
 	"context"
 	// "fmt"
 
-	"github.com/username/loan/x/loan/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/username/loan/x/loan/types"
 )
 
 func (k msgServer) ApproveLoan(goCtx context.Context, msg *types.MsgApproveLoan) (*types.MsgApproveLoanResponse, error) {
