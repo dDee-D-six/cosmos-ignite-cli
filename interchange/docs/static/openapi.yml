@@ -28291,28 +28291,6 @@ paths:
                       type: string
                     priceDenom:
                       type: string
-                    book:
-                      type: object
-                      properties:
-                        idCount:
-                          type: integer
-                          format: int32
-                        orders:
-                          type: array
-                          items:
-                            type: object
-                            properties:
-                              id:
-                                type: integer
-                                format: int32
-                              creator:
-                                type: string
-                              amount:
-                                type: integer
-                                format: int32
-                              price:
-                                type: integer
-                                format: int32
               pagination:
                 type: object
                 properties:
@@ -28436,28 +28414,6 @@ paths:
                     type: string
                   priceDenom:
                     type: string
-                  book:
-                    type: object
-                    properties:
-                      idCount:
-                        type: integer
-                        format: int32
-                      orders:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            id:
-                              type: integer
-                              format: int32
-                            creator:
-                              type: string
-                            amount:
-                              type: integer
-                              format: int32
-                            price:
-                              type: integer
-                              format: int32
         default:
           description: An unexpected error response.
           schema:
@@ -49066,28 +49022,6 @@ definitions:
         type: string
       priceDenom:
         type: string
-      book:
-        type: object
-        properties:
-          idCount:
-            type: integer
-            format: int32
-          orders:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  format: int32
-                creator:
-                  type: string
-                amount:
-                  type: integer
-                  format: int32
-                price:
-                  type: integer
-                  format: int32
   username.interchange.dex.DenomTrace:
     type: object
     properties:
@@ -49109,42 +49043,6 @@ definitions:
     type: object
   username.interchange.dex.MsgSendSellOrderResponse:
     type: object
-  username.interchange.dex.Order:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int32
-      creator:
-        type: string
-      amount:
-        type: integer
-        format: int32
-      price:
-        type: integer
-        format: int32
-  username.interchange.dex.OrderBook:
-    type: object
-    properties:
-      idCount:
-        type: integer
-        format: int32
-      orders:
-        type: array
-        items:
-          type: object
-          properties:
-            id:
-              type: integer
-              format: int32
-            creator:
-              type: string
-            amount:
-              type: integer
-              format: int32
-            price:
-              type: integer
-              format: int32
   username.interchange.dex.Params:
     type: object
     description: Params defines the parameters for the module.
@@ -49162,28 +49060,6 @@ definitions:
               type: string
             priceDenom:
               type: string
-            book:
-              type: object
-              properties:
-                idCount:
-                  type: integer
-                  format: int32
-                orders:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        format: int32
-                      creator:
-                        type: string
-                      amount:
-                        type: integer
-                        format: int32
-                      price:
-                        type: integer
-                        format: int32
       pagination:
         type: object
         properties:
@@ -49301,28 +49177,6 @@ definitions:
             type: string
           priceDenom:
             type: string
-          book:
-            type: object
-            properties:
-              idCount:
-                type: integer
-                format: int32
-              orders:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                      format: int32
-                    creator:
-                      type: string
-                    amount:
-                      type: integer
-                      format: int32
-                    price:
-                      type: integer
-                      format: int32
   username.interchange.dex.QueryGetDenomTraceResponse:
     type: object
     properties:

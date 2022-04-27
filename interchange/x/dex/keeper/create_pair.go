@@ -68,41 +68,37 @@ func (k Keeper) TransmitCreatePairPacket(
 
 // OnRecvCreatePairPacket processes packet reception
 func (k Keeper) OnRecvCreatePairPacket(ctx sdk.Context, packet channeltypes.Packet, data types.CreatePairPacketData) (packetAck types.CreatePairPacketAck, err error) {
-	// ...
-	// Get an order book index
-	pairIndex := types.OrderBookIndex(packet.SourcePort, packet.SourceChannel, data.SourceDenom, data.TargetDenom)
-	// If an order book is found, return an error
-	_, found := k.GetBuyOrderBook(ctx, pairIndex)
-	if found {
-	  return packetAck, errors.New("the pair already exist")
+	// validate packet data upon receiving
+	if err := data.ValidateBasic(); err != nil {
+		return packetAck, err
 	}
-	// Create a new buy order book for source and target denoms
-	book := types.NewBuyOrderBook(data.SourceDenom, data.TargetDenom)
-	// Assign order book index
-	book.Index = pairIndex
-	// Save the order book to the store
-	k.SetBuyOrderBook(ctx, book)
+
+	// TODO: packet reception logic
+
 	return packetAck, nil
-  }
+}
 
 // OnAcknowledgementCreatePairPacket responds to the the success or failure of a packet
 // acknowledgement written on the receiving chain.
 func (k Keeper) OnAcknowledgementCreatePairPacket(ctx sdk.Context, packet channeltypes.Packet, data types.CreatePairPacketData, ack channeltypes.Acknowledgement) error {
 	switch dispatchedAck := ack.Response.(type) {
 	case *channeltypes.Acknowledgement_Error:
+
+		// TODO: failed acknowledgement logic
+		_ = dispatchedAck.Error
+
 		return nil
 	case *channeltypes.Acknowledgement_Result:
 		// Decode the packet acknowledgment
 		var packetAck types.CreatePairPacketAck
+
 		if err := types.ModuleCdc.UnmarshalJSON(dispatchedAck.Result, &packetAck); err != nil {
 			// The counter-party module doesn't implement the correct acknowledgment format
 			return errors.New("cannot unmarshal acknowledgment")
 		}
-		// Set the sell order book
-		pairIndex := types.OrderBookIndex(packet.SourcePort, packet.SourceChannel, data.SourceDenom, data.TargetDenom)
-		book := types.NewSellOrderBook(data.SourceDenom, data.TargetDenom)
-		book.Index = pairIndex
-		k.SetSellOrderBook(ctx, book)
+
+		// TODO: successful acknowledgement logic
+
 		return nil
 	default:
 		// The counter-party module doesn't implement the correct acknowledgment format
